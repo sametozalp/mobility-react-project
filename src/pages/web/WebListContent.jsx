@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from 'react';
+import { Label } from 'semantic-ui-react';
 import DataTable from '../../layouts/DataTable';
 import WebService from '../../services/webService';
 
@@ -13,6 +14,9 @@ export default function WebListContent() {
   }, [])
 
   return (
-    <DataTable results={results}></DataTable>
+    <div>
+      <Label>Web List</Label>
+      <DataTable results={results}></DataTable>
+    </div>
   )
 }

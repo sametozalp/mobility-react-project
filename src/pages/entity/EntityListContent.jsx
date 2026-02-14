@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from 'react';
+import { Label } from 'semantic-ui-react';
 import DataTable from '../../layouts/DataTable';
 import EntityService from '../../services/entityService';
 
@@ -13,6 +14,9 @@ export default function EntityListContent() {
   }, [])
 
   return (
-    <DataTable results={results}></DataTable>
+    <div>
+      <Label>Entity List</Label>
+      <DataTable results={results}></DataTable>
+    </div>
   )
 }

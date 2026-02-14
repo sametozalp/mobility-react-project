@@ -16,10 +16,10 @@ export default function MyMenu() {
 
       <div className='menu-item-title'>Web Service</div>
       <Menu secondary vertical>
-        <MenuItem name='add' />
-        <MenuItem name='list' />
-        <MenuItem name='delete' />
-        <MenuItem name='search' />
+        <MenuItem as={NavLink} to="/web/add" name='add' />
+        <MenuItem as={NavLink} to="/web/list" name='list' />
+        <MenuItem as={NavLink} to="/web/delete" name='delete' />
+        <MenuItem  as={NavLink} to="/web/search" name='search' />
       </Menu>
     </div>
   )

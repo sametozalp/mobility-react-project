@@ -1,7 +1,7 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { Button, FormField, Label } from 'semantic-ui-react';
 import * as Yup from 'yup';
-import EntityService from '../services/entityService';
+import EntityService from '../../services/entityService';
 
 export default function EntityAdd() {
     let initialValues = {

@@ -4,10 +4,10 @@ import {
   Button, FormField, Label
 } from 'semantic-ui-react';
 import * as Yup from 'yup';
-import DataTable from "../layouts/DataTable";
-import EntityService from '../services/entityService';
+import DataTable from "../../layouts/DataTable";
+import WebService from '../../services/webService';
 
-export default function EntitySearch() {
+export default function WebSearch() {
   const [results, setResults] = useState([])
 
   let initialValues = {
@@ -21,7 +21,7 @@ export default function EntitySearch() {
   return (
     <div>
       <Formik initialValues={initialValues} validationSchema={schema} onSubmit={(values, { resetForm }) => {
-        let service = new EntityService();
+        let service = new WebService();
         service.searchRecords(values.name).then(r => {
           setResults(r)
         })

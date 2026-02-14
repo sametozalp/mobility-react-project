@@ -1,9 +1,9 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { Button, FormField, Label } from 'semantic-ui-react';
 import * as Yup from 'yup';
-import EntityService from '../services/entityService';
+import WebService from '../../services/webService';
 
-export default function EntityDelete() {
+export default function WebDelete() {
   let initialValues = {
     name: ""
   }
@@ -14,7 +14,7 @@ export default function EntityDelete() {
 
   return (
     <Formik initialValues={initialValues} validationSchema={schema} onSubmit={(values, { resetForm }) => {
-      let service = new EntityService();
+      let service = new WebService();
       service.deleteRecord(values.name).then(r => {
         resetForm();
       })

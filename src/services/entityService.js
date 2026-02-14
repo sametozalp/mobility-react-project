@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const entityApi = axios.create({
   baseURL: "http://localhost:8080/api",
@@ -6,6 +7,17 @@ const entityApi = axios.create({
     "Content-Type": "application/json",
   },
 });
+
+entityApi.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    const message = error.response?.data?.message || "Error!";
+    toast.error(message);
+    return Promise.reject(error);
+  }
+);
 
 export default class EntityService {
 

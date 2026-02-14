@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const webApi = axios.create({
   baseURL: "http://localhost:8082/api",
@@ -6,6 +7,17 @@ const webApi = axios.create({
     "Content-Type": "application/json",
   },
 });
+
+webApi.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    const message = error.response?.data?.message || "Error!";
+    toast.error(message);
+    return Promise.reject(error);
+  }
+);
 
 export default class WebService {
 

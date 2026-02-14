@@ -27,3 +27,8 @@
 .spacer {
   margin-top: 5em;
 }
+
+iframe
+{
+    display: none;
+}

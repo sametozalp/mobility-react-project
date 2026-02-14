@@ -1,7 +1,8 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useState } from 'react';
+import { toast } from "react-toastify";
 import {
-    Button, FormField, Label
+  Button, FormField, Label
 } from 'semantic-ui-react';
 import * as Yup from 'yup';
 import DataTable from "../../layouts/DataTable";
@@ -24,6 +25,7 @@ export default function EntitySearch() {
         let service = new EntityService();
         service.searchRecords(values.name).then(r => {
           setResults(r)
+          toast.success("Success")
         })
       }}>
         <Form className="ui form">

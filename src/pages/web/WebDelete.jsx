@@ -1,4 +1,5 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
+import { toast } from "react-toastify";
 import { Button, FormField, Label } from 'semantic-ui-react';
 import * as Yup from 'yup';
 import WebService from '../../services/webService';
@@ -17,6 +18,7 @@ export default function WebDelete() {
       let service = new WebService();
       service.deleteRecord(values.name).then(r => {
         resetForm();
+        toast.success("Removed data!");
       })
     }}>
       <Form className="ui form">

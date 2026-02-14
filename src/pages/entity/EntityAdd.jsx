@@ -1,4 +1,5 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
+import { toast } from "react-toastify";
 import { Button, FormField, Label } from 'semantic-ui-react';
 import * as Yup from 'yup';
 import EntityService from '../../services/entityService';
@@ -25,6 +26,7 @@ export default function EntityAdd() {
             let service = new EntityService();
             service.addRecord(values).then(r => {
                 resetForm();
+                toast.success("Added.")
             })
         }}>
             <Form className="ui form">

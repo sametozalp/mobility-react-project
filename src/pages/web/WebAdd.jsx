@@ -1,4 +1,5 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
+import { toast } from "react-toastify";
 import { Button, FormField, Label } from 'semantic-ui-react';
 import * as Yup from 'yup';
 import WebService from '../../services/webService';
@@ -25,6 +26,7 @@ export default function WebAdd() {
             let service = new WebService();
             service.addRecord(values).then(r => {
                 resetForm();
+                toast.success("Added.");
             })
         }}>
             <Form className="ui form">

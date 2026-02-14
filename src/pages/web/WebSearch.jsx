@@ -1,5 +1,6 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useState } from 'react';
+import { toast } from "react-toastify";
 import {
   Button, FormField, Label
 } from 'semantic-ui-react';
@@ -24,6 +25,7 @@ export default function WebSearch() {
         let service = new WebService();
         service.searchRecords(values.name).then(r => {
           setResults(r)
+          toast.success("Success");
         })
       }}>
         <Form className="ui form">

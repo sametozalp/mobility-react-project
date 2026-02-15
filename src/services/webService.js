@@ -13,7 +13,7 @@ webApi.interceptors.response.use(
     return response;
   },
   (error) => {
-    const message = error.response?.data?.message || "Error!";
+    const message = error?.message || "Error!";
     toast.error(message);
     return Promise.reject(error);
   }
